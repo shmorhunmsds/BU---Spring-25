@@ -314,8 +314,12 @@ In terms of scalability, both database types support distributed architectures, 
 ___
 ## 3.3 Lesson: Deciding Which Database to Use
 
-
-
-
-
-
+## 3.4 Topic 3 Knowledge Assessment
+1. A company is designing a real-time leaderboard for an online multiplayer game. Players’ scores need to be updated frequently and retrieved instantly for ranking. Which type of database would be most suitable?
+- Key-value database (e.g., Redis): Key-value databases like Redis offer low-latency access and fast read/write operations, making them ideal for real-time ranking systems where quick retrieval and updates are critical.
+2. An e-commerce company needs a database to store product details, including varying attributes such as brand, dimensions, materials, and customer reviews. The database should allow flexible schema updates as new product categories are introduced. Which type of database is best suited?
+- Document database (e.g., MongoDB): Document databases are ideal for semi-structured data and allow flexible schema evolution. E-commerce products often have diverse attributes, and a document database like MongoDB can efficiently store and retrieve this information.
+3. A finance company wants to store session data for users logging into their mobile banking app. Each session should be retrieved quickly, but no complex querying is required. Which database type should it use?
+- Key-value database (e.g., Redis): Key-value databases like Redis are perfect for storing and retrieving session data, as they provide high-speed lookups without requiring complex queries.
+4. A social media platform needs to store and retrieve user profiles that include text, images, and various metadata. The platform should allow quick searches based on user attributes like interests, location, and activity. Which type of database is most appropriate?
+- Correct: Document database (e.g., Couchbase): Document databases like Couchbase or MongoDB allow for flexible, hierarchical storage of user profile data while supporting indexing and querying for user attributes such as interests and location.
