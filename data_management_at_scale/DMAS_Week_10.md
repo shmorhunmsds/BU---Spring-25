@@ -213,7 +213,137 @@ From our previous video discussion, here are the key architectural components th
 | **Kappa Architecture** |  A simplified approach that focuses solely on real-time streaming data processing, often used in applications requiring instant decision-making, such as IoT and fraud detection. |
 | **Data Lake Architecture** | A centralized repository that stores raw, unstructured, and semi-structured data in its native format, allowing flexible data exploration and analysis without predefined schemas. |
 
-Big data architectures provide the foundation for handling large-scale datasets efficiently. By leveraging distributed storage, parallel computing, and advanced analytics, these architectures enable businesses to derive valuable insights, drive innovation, and improve decision-making in data-intensive environments.  
+Big data architectures provide the foundation for handling large-scale datasets efficiently. By leveraging distributed storage, parallel computing, and advanced analytics, these architectures enable businesses to derive valuable insights, drive innovation, and improve decision-making in data-intensive environments.
+
+## 2.2 Lesson: Batch and Stream Processing
+In this video, we’ll explore two core data processing methods in big data architecture: batch processing and stream processing. Both play essential roles in managing and analyzing large datasets, but each serves different needs. You’ll learn the key differences between these approaches, how they work, and where each method excels in real-world applications. By the end, you’ll understand when to use batch processing for bulk tasks and when stream processing is critical for real-time decision-making.
+
+### Batch Processing vs. Stream Processing
+
+In this lesson, we explored two core data processing methods in big data architecture: **batch processing** and **stream processing**. Each serves different purposes depending on the use case.
+
+---
+
+#### Batch Processing
+- **Definition**: Traditional method of processing large volumes of data all at once after collection over a specific period.
+- **How it works**:
+  - Data is collected and stored.
+  - After a set time, all data is processed in a single batch.
+- **Characteristics**:
+  - Best for tasks that do not require immediate results.
+  - **Cost-effective** and **efficient** for large datasets.
+- **Common Use Cases**:
+  - Financial reporting (e.g., calculating bank balances overnight)
+  - Payroll processing
+  - Retail sales trend analysis at the end of each week
+  - Large-scale data migrations
+- **Typical Workflow**:
+  - Extract → Transform (aggregate, cleanse) → Load into a curated repository for reporting, analytics, or machine learning.
+  - Can be scheduled or event-driven (e.g., triggered when a file is added).
+
+#### Stream Processing
+
+- **Definition**: Real-time processing of data as it is generated.
+- **How it works**:
+  - Systems analyze and act on data continuously as it flows in, rather than waiting for a batch.
+- **Characteristics**:
+  - Provides **immediate insights** and **real-time decision-making**.
+- **Common Use Cases**:
+  - Fraud detection
+  - Real-time analytics
+  - Personalized customer experiences
+  - Social media updates (posts, comments, likes processed instantly)
+- **Example**:
+  - An online store updates inventory and detects fraud instantly as transactions occur.
+
+#### Key Takeaways
+
+- **Batch Processing**: Best for large volumes of data that can be handled after collection.
+- **Stream Processing**: Critical for applications needing **real-time** results.
+- Choosing the right method depends on the organization's specific needs for speed, cost, and complexity.
+
+## 2.3 Lesson: Distributed Computing Framework: Hadoop and Spark
+As data grows in volume and complexity, traditional single-server solutions struggle to keep up. In this video, we’ll explore distributed compute and distributed data, two essential approaches that allow systems to scale efficiently while maintaining high performance and reliability. You’ll learn how distributing computational tasks across multiple machines speeds up processing and how spreading data across multiple nodes improves storage, access speed, and fault tolerance.
+
+### Introducing Distributed Compute and Distributed Data
+
+**Distributed Compute and Distributed Data**
+Today, we explored the concepts of **distributed compute** and **distributed data**, which are critical for handling large datasets and complex systems.
+
+### Distributed Compute
+
+**Definition**: Splitting a computational task across multiple machines (nodes) to process data faster and more efficiently.
+- **How it works**:
+  - Tasks are broken into smaller subtasks.
+  - Subtasks are distributed to different nodes in a cluster.
+  - Each node processes its part independently.
+  - Results are combined at the end.
+- **Characteristics**:
+  - **Scalability**: Add more machines to handle growing workloads.
+  - **Fault Tolerance**: Failure of one node does not crash the system.
+  - **High Performance**: Leverages the power of multiple machines for faster processing.
+
+### Distributed Data
+
+**Definition**: Storing data across multiple servers or locations instead of a single database.
+- **How it works**:
+  - Data is partitioned across nodes based on a key or range.
+  - Queries retrieve data from multiple nodes simultaneously.
+- **Characteristics**:
+  - **Scalability**: Increased storage capacity by spreading data across nodes.
+  - **Fault Tolerance**: Data is often replicated to maintain availability if a node fails.
+  - **Lower Latency**: Clients access data from the nearest node, reducing wait time.
+
+#### Key Takeaways
+- **Distributed Compute**: Divides computational tasks among multiple machines for faster processing and higher resilience.
+- **Distributed Data**: Spreads data across servers to improve access speed, storage capacity, and fault tolerance.
+- Together, they provide the **scalability**, **speed**, and **resilience** necessary for modern large-scale data processing.
+
+### Introducing Map Reduce and Spark
+Today, we explored two key frameworks in distributed data processing: **MapReduce** and **Apache Spark**. These frameworks revolutionized how large datasets are processed by enabling distributed computing at scale.
+### MapReduce
+**Definition**: A programming model and framework introduced by Google to process large datasets across distributed clusters.
+- **How it works**:
+  - **Map Phase**: 
+    - The dataset is divided into smaller chunks.
+    - Each chunk is processed in parallel by different nodes.
+    - The map function extracts key-value pairs from the data.
+  - **Reduce Phase**:
+    - Results from the map phase are combined, aggregated, or filtered based on the key values to produce the final output.
+- **Key Points**:
+  - Popularized by the Hadoop ecosystem.
+  - Best suited for **batch processing**.
+  - Writes intermediate results to disk, which can slow down performance.
+
+### Apache Spark
+**Definition**: An advanced distributed data processing engine that improves upon MapReduce concepts, with a focus on performance and flexibility.
+- **How it works**:
+  - Performs **in-memory computations**, reducing the time spent reading and writing to disk.
+  - Data stays in memory throughout the computation process.
+- **Key Points**:
+  - Supports **batch processing**, **real-time streaming**, **machine learning**, and **graph processing** within a unified platform.
+  - Spark clusters distribute compute resources across multiple nodes:
+    - **Spark Driver** → assigns a job to the **Cluster Manager**.
+    - **Cluster Manager** → delegates tasks to **Cluster Workers**.
+  - **Sports Analogy**:
+    - Spark Driver = Offensive Coordinator
+    - Cluster Manager = Quarterback
+    - Cluster Workers = Skill Players
+
+#### Comparison: MapReduce vs. Spark
+
+| Feature            | MapReduce                | Apache Spark                |
+|--------------------|---------------------------|------------------------------|
+| **Speed**          | Slower (disk-based)       | Faster (in-memory)           |
+| **Ease of Use**    | Lower-level programming   | Higher-level APIs (Python, Scala, Java) |
+| **Real-Time Support** | Limited (batch only)      | Yes (Spark Streaming)        |
+| **Cost**           | Lower (disk is cheaper)   | Higher (memory is expensive) |
+| **Best Use Case**  | Batch processing          | Real-time and batch processing |
+
+#### Key Takeaways
+- **MapReduce** laid the foundation for distributed data processing at scale, focusing on batch jobs.
+- **Apache Spark** pushed the boundaries further with faster, more flexible processing capabilities.
+- Understanding these tools is essential for working with large-scale data solutions.
 
 
 
