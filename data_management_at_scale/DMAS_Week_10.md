@@ -345,6 +345,16 @@ Today, we explored two key frameworks in distributed data processing: **MapReduc
 - **Apache Spark** pushed the boundaries further with faster, more flexible processing capabilities.
 - Understanding these tools is essential for working with large-scale data solutions.
 
+## 2.4 Knowledge Check: Fundamental Big Data Architecture
+1. Question: A company wants to process large volumes of customer transaction data in real time to detect fraudulent activity. Which component of a big data architecture is most critical in this scenario?
+- Correct: Stream processing system; Stream processing systems, like Apache Kafka or Apache Flink, allow real-time data ingestion and analysis, making them ideal for fraud detection, where immediate response is needed. 
+2. What is the primary purpose of a Data Lake in a big data architecture?
+- Correct: Correct: To provide a scalable storage solution for structured, semi-structured, and unstructured data. Data Lakes serve as a centralized repository where raw data in various formats can be stored, later processed, and analyzed as needed.
+3. A retail company is experiencing slow query performance due to the increasing size of its database. Which architectural solution would help scale database queries efficiently?
+- Correct: Using a distributed NoSQL database like Cassandra
+4. Which of the following best describes the role of a compute cluster in a big data architecture?
+- Correct: A network of machines working together to process large-scale data workloads. Compute clusters, such as those powered by Hadoop or Spark, enable parallel processing across multiple machines, allowing big data applications to handle massive datasets efficiently.
+
 
 
 
